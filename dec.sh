@@ -1,0 +1,29 @@
+
+DATA_DIR=./data
+TRAIN_DIR=./TRAINDIR
+TMP_DIR=./TMPDIR
+BEST_DIR=./BEST
+INFER=./INFER/infer.txt
+OUTPUT=./1best.txt
+
+BEAM=4
+BATCH=80
+EPOCH=10
+NUM_LAYERS=1
+HDIM=256
+DROP=0.8
+LRATE=0.7
+ADAP=0.8
+CLIP=5
+FIXLR=6
+SVOC=30000
+TVOC=30000
+
+./DEBUG \
+	-k 1 $BEST_DIR $OUTPUT 
+	--decode-main-data-files $INFER 
+	-L 200
+	-b $BEAM
+	--print-score true 
+	--dec-ratio 0.2 1.8
+
